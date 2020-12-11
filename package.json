@@ -1,0 +1,23 @@
+{
+  "name": "qabankingexercise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "cypress": "^6.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kath-art/QABankingExercise.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kath-art/QABankingExercise/issues"
+  },
+  "homepage": "https://github.com/Kath-art/QABankingExercise#readme"
+}
