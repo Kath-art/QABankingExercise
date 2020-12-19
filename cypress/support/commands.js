@@ -38,6 +38,11 @@ Cypress.Commands.add('loginWithUI', () => {
     cy.url().should('include','Dashboard');
 });
 
+// Cypress.Commands.add("clickRecaptcha", () => {
+//     cy.get('iframe').first().its('0.contentDocument.body').should('not.be.undefined').and('not.be.empty')
+//         .then(cy.wrap).find('#recaptcha-anchor').should('be.visible').click();
+//   });
+
 
 // -- This is a child command --
 // Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
