@@ -10,9 +10,35 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add("login", (email, password) => { ... })
-//
-//
+Cypress.Commands.add('loginWithUI', () => {
+    const model = {
+        loginPageHeading: 'h2',
+        emailField: '#xl-form-email',
+        passwordField: '#xl-form-password',
+        loginButton: '#xl-form-submit',
+        myXeroPageHeading:'h1',
+    }
+
+    const username = Cypress.env('username')
+    const password = Cypress.env('password')
+
+    cy.visit('https://www.xero.com/nz');
+    
+    cy.contains('Log in').click();
+    cy.get(model.loginPageHeading).should('contain', 'Log in to Xero');
+    
+
+    cy.get(model.emailField).should('exist').and('have.attr','placeholder','Email address');
+    cy.get(model.emailField).type(username);
+
+    cy.get(model.passwordField).should('exist').and('have.attr','placeholder','Password' )
+    cy.get(model.passwordField).type(password); 
+    
+    cy.get('#xl-form-submit').click();
+    cy.url().should('include','Dashboard');
+});
+
+
 // -- This is a child command --
 // Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
 //

@@ -1,3 +1,9 @@
 {
-    "projectId": "bng7si"
+    "projectId": "bng7si",
+    "chromeWebSecurity": false,
+    
+"env": {
+    "email": "kath.triggs@xero.com",
+    "password": "Tomandnick!23"
+  }
 }
