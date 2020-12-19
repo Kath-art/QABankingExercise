@@ -11,10 +11,8 @@ const model = {
     confirmationButton: '.Button__Element-sc-1cctqc6-0',
 }
 
-// const RECAPTCHA_SITE_KEY = window.Cypress ? '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI': 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
-
 describe('Create Trial User', () => {
-    it ('vists the homepage and clicks on the trial button ', () => {
+    it ('visits the homepage and clicks on the trial button ', () => {
         cy.visit('https://www.xero.com/nz');
         cy.contains('Try Xero for free').click();
         cy.url().should('include','signup');
@@ -29,12 +27,12 @@ describe('Create Trial User', () => {
         cy.get(model.locationValue).should('contain', 'New Zealand');
         
         cy.get('iframe').first().its('0.contentDocument.body').should('not.be.undefined').and('not.be.empty').then(cy.wrap).find('#recaptcha-anchor').should('be.visible').wait(5000).click();
-        // cy.get(model.confirmationButton).click();
+        cy.get(model.confirmationButton).click();
     });
 
-    // it ('displays the successful sign up page ', () => {
-    //     cy.visit('https://www.xero.com/nz');
-    //     cy.contains('Try Xero for free').click();
-    //     cy.url().should('include','signup');
-    // });
+    it ('displays the successful sign up page ', () => {
+        cy.visit('https://www.xero.com/nz');
+        cy.contains('Try Xero for free').click();
+        cy.url().should('include','signup');
+    });
 });
