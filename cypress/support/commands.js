@@ -12,30 +12,22 @@
 // -- This is a parent command --
 Cypress.Commands.add('loginWithUI', () => {
     const model = {
-        loginPageHeading: 'h2',
         emailField: '#xl-form-email',
-        passwordField: '#xl-form-password',
+        loginPageHeading: 'h2',
         loginButton: '#xl-form-submit',
         myXeroPageHeading:'h1',
+        passwordField: '#xl-form-password',
     }
 
-    const username = Cypress.env('username')
-    const password = Cypress.env('password')
-
     cy.visit('https://www.xero.com/nz');
-    
     cy.contains('Log in').click();
-    cy.get(model.loginPageHeading).should('contain', 'Log in to Xero');
-    
-
+    cy.wait(2000);
     cy.get(model.emailField).should('exist').and('have.attr','placeholder','Email address');
-    cy.get(model.emailField).type(username);
-
     cy.get(model.passwordField).should('exist').and('have.attr','placeholder','Password' )
-    cy.get(model.passwordField).type(password); 
-    
+    cy.get(model.emailField).type(Cypress.env('username'));
+    cy.get(model.passwordField).type(Cypress.env('password')); 
     cy.get('#xl-form-submit').click();
-    cy.url().should('include','Dashboard');
+
 });
 
 // Cypress.Commands.add("clickRecaptcha", () => {

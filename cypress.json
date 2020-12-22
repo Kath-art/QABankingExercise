@@ -1,9 +1,10 @@
 {
     "projectId": "bng7si",
     "chromeWebSecurity": false,
-    
+    "baseUrl": "https://www.xero.com/nz/",
+
 "env": {
-    "email": "kath.triggs@xero.com",
+    "username": "kath.triggs@xero.com",
     "password": "Tomandnick!23"
   }
 }
